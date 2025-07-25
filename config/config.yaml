@@ -1,0 +1,41 @@
+# config/config.yaml
+# 数据配置
+# num_classes: 80  # COCO数据集类别数
+# img_size: 640
+
+num_classes: 80
+img_size: 640
+anchors:
+  - [[10,13], [16,30], [33,23]]    # 小目标
+  - [[30,61], [62,45], [59,119]]     # 中目标
+  - [[116,90], [156,198], [373,326]] # 大目标
+
+
+
+
+
+# 数据路径
+train_images: "data/coco/train2017"
+train_annotations: "data/coco/annotations/instances_train2017.json"
+val_images: "data/coco/val2017"
+val_annotations: "data/coco/annotations/instances_val2017.json"
+test_images: "data/coco/test2017"
+test_annotations: "data/coco/annotations/instances_test2017.json"
+unlabeled_images: "data/coco/unlabeled2017"  # 新增未标注数据路径
+
+# 训练配置
+batch_size: 8
+epochs: 50
+learning_rate: 0.001
+weight_decay: 0.0005
+
+# 评估配置
+iou_threshold: 0.5
+conf_threshold: 0.5
+
+use_balanced_sampler: false  # 是否启用类别均衡采样
+use_loss_reweight: false    # 是否启用损失重加权
+use_attention: false  # 是否启用注意力机制
+attention_type: "CBAM"  # 支持CBAM、ECA等
+backbone_type: "efficientnet_v2_s"  # 支持efficientnet_v2_s、mobilenet_v3_large、ghostnet
+fpn_type: "fpn"  # 支持fpn、bifpn
