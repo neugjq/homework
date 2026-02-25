@@ -29,6 +29,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'neugjq', // Usually your GitHub org/user name.
   projectName: 'homework', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
